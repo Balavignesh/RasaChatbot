@@ -1,0 +1,7 @@
+version: "2.0"
+rules:
+- rule: Starter Rule
+  conversation_start: true
+  steps:
+  - intent: greet
+  - action: utter_welcome

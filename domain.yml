@@ -1,0 +1,60 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- utter_agree:
+    use_entities: true
+- utter_disagree:
+    use_entities: true
+- utter_greet:
+    use_entities: true
+- utter_bye:
+    use_entities: true
+entities: []
+slots:
+  email:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: |
+      Hello! How can I help you?
+  - text: |
+      Hi!
+  utter_welcome:
+  - buttons:
+    - payload: I Agree
+      title: I Agree
+    - payload: I Disagree
+      title: I Disagree
+    text: Welcome to Covid-19 Self-checker tool, This is for informational purposes only. In case of any life-threatening emergency dial 911.
+  utter_agree:
+  - text: Do you like to check the symptoms for the Covid-19
+  utter_disagree:
+  - text: Please agree to use the Covid-19 Self-Checker tool.
+  utter_bye:
+  - text: |-
+      Thanks for using the Covid-19 Checker tool
+        1. Wear Mask
+        2. Stay 6 feet apart
+        3. Get vaccination
+        4. Avoid crowded areas
+        5. Wash your hands often
+        6. Stay home and seek medical assistance in case you have shown any symptoms
+actions:
+- '...'
+- utter_greet
+- utter_agree
+- utter_disagree
+forms:
+  newsletter_form:
+    email:
+    - type: from_text
+e2e_actions: []
