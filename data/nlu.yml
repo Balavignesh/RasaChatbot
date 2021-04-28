@@ -11,6 +11,9 @@ nlu:
     - bot
     - hi how are you
     - HI
+    - vanakkam
+    - hellooooo
+    - hello
 - intent: utter_agree
   examples: |
     - I Agree
