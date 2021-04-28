@@ -13,3 +13,13 @@ stories:
   - action: utter_welcome
   - intent: utter_agree
   - action: utter_agree
+  - intent: utter_yes
+  - action: utter_bye
+- story: No Symptoms
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: utter_agree
+  - action: utter_agree
+  - intent: utter_no
+  - action: utter_bye

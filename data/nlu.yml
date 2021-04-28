@@ -23,3 +23,9 @@ nlu:
     - I Disagree
     - Disagree
     - i disagree
+- intent: utter_yes
+  examples: |
+    - Yes
+- intent: utter_no
+  examples: |
+    - No

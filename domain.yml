@@ -15,6 +15,10 @@ intents:
     use_entities: true
 - utter_bye:
     use_entities: true
+- utter_yes:
+    use_entities: true
+- utter_no:
+    use_entities: true
 entities: []
 slots:
   email:
@@ -36,7 +40,26 @@ responses:
       title: I Disagree
     text: Welcome to Covid-19 Self-checker tool, This is for informational purposes only. In case of any life-threatening emergency dial 911.
   utter_agree:
-  - text: Do you like to check the symptoms for the Covid-19
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: |-
+      People with COVID-19 have had a wide range of symptoms reported ranging from mild symptoms to severe illness. Symptoms may appear 2-14 days after exposure to the virus. Do you have any of these life-threatening symptoms?
+      - Pale, gray, or blue-colored skin, lips, or nail beds, depending on skin tone
+      - Severe and constant pain or pressure in the chest
+      - Extreme difficulty breathing (such as gasping for air, being unable to talk without catching your breath, severe wheezing, nostrils flaring)
+      - New disorientation (acting confused)
+      - Unconscious or very difficult to wake up
+      - Slurred speech or difficulty speaking (new or worsening)
+      - New or worsening seizures
+      - Signs of low blood pressure (too weak to stand, dizziness, lightheaded, feeling cold, pale, clammy skin)
+      - Dehydration (dry lips and mouth, not urinating much, sunken eyes)
+      - Fever or chills 
+      - Cough 
+      - New loss of taste or smell 
+      This list does not include all possible symptoms.
   utter_disagree:
   - text: Please agree to use the Covid-19 Self-Checker tool.
   utter_bye:
