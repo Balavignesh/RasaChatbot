@@ -1,12 +1,5 @@
 version: "2.0"
 stories:
-- story: Story from Conversation ID a1ae53d48ff6421a8f6f8f3bdbe71c50
-  steps:
-  - intent: greet
-  - action: utter_welcome
-  - intent: utter_disagree
-  - action: utter_disagree
-  - action: utter_bye
 - story: Story from Conversation ID fc30cc67bbe44bfdad28df9df176d9a3
   steps:
   - intent: greet
@@ -14,12 +7,63 @@ stories:
   - intent: utter_agree
   - action: utter_agree
   - intent: utter_yes
+  - action: utter_besafe
   - action: utter_bye
-- story: No Symptoms
+- story: No Symptoms No Close Contact
   steps:
   - intent: greet
   - action: utter_welcome
   - intent: utter_agree
   - action: utter_agree
   - intent: utter_no
+  - action: utter_sick
+  - intent: utter_no
+  - action: utter_closecontact
+  - intent: utter_no
+  - action: utter_novirus
   - action: utter_bye
+- story: Sick Story Yes
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: utter_agree
+  - action: utter_agree
+  - intent: utter_no
+  - action: utter_sick
+  - intent: utter_yes
+  - action: utter_closecontact
+  - intent: utter_yes
+  - action: utter_besafe
+  - action: utter_bye
+- story: Sick Story No
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: utter_agree
+  - action: utter_agree
+  - intent: utter_no
+  - action: utter_sick
+  - intent: utter_no
+  - action: utter_closecontact
+  - intent: utter_yes
+  - action: utter_besafe
+  - action: utter_bye
+- story: Sick Story No Close
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: utter_agree
+  - action: utter_agree
+  - intent: utter_no
+  - action: utter_sick
+  - intent: utter_yes
+  - action: utter_closecontact
+  - intent: utter_no
+  - action: utter_besafe
+  - action: utter_bye
+- story: Disagree Story
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - intent: utter_disagree
+  - action: utter_disagree

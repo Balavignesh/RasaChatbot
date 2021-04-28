@@ -11,8 +11,6 @@ intents:
     use_entities: true
 - utter_disagree:
     use_entities: true
-- utter_greet:
-    use_entities: true
 - utter_bye:
     use_entities: true
 - utter_yes:
@@ -20,18 +18,8 @@ intents:
 - utter_no:
     use_entities: true
 entities: []
-slots:
-  email:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
-    influence_conversation: false
+slots: {}
 responses:
-  utter_greet:
-  - text: |
-      Hello! How can I help you?
-  - text: |
-      Hi!
   utter_welcome:
   - buttons:
     - payload: I Agree
@@ -61,7 +49,15 @@ responses:
       - New loss of taste or smell 
       This list does not include all possible symptoms.
   utter_disagree:
-  - text: Please agree to use the Covid-19 Self-Checker tool.
+  - text: |-
+      Please agree to use the Covid-19 Self-Checker tool.
+
+        1. Wear Mask
+        2. Stay 6 feet apart
+        3. Get vaccination
+        4. Avoid crowded areas
+        5. Wash your hands often
+        6. Stay home and seek medical assistance in case you have shown any symptoms
   utter_bye:
   - text: |-
       Thanks for using the Covid-19 Checker tool
@@ -71,13 +67,37 @@ responses:
         4. Avoid crowded areas
         5. Wash your hands often
         6. Stay home and seek medical assistance in case you have shown any symptoms
+  utter_sick:
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: Are you feeling Sick?
+  utter_closecontact:
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: In the two weeks before you felt sick, have you been in close contact with someone who has COVID-19? —excluding people who have had COVID-19 within the past 3 months.
+  utter_besafe:
+  - text: |-
+      - Watch for COVID-19 symptoms such as fever, cough, or difficulty breathing. If you develop any of these symptoms or if you start feeling worse, call your medical provider, clinician advice line, or telemedicine provider.
+
+      - Regardless of vaccination status or prior infection, CDC recommends that anyone with symptoms of COVID-19 should get tested and follow the advice of your healthcare provider. Contact your local or state health department to find a testing location near you
+
+      - CDC recommends that all close contacts of people with confirmed COVID-19 should quarantine for 14 days from the day of their last exposure. Check your local health department’s website for information about options in your area to possibly shorten this quarantine period. You may also receive a call from a contact tracing professional
+      - Stay home and away from others until:
+        it has been 10 days from when your symptoms first appeared and you have had no fever for 24 hours without the use of medications and your other symptoms of COVID-19 are improving(Loss of taste and smell may persist for weeks or months after recovery and need not delay the end of isolation) If you have a weakened immune system (immunocompromised) due to a health condition or medication, you might need to stay home and isolate longer than 10 days and possibly 20 days after symptoms begin. In some circumstances, further testing may be needed. Talk to your healthcare provider for more information.
+  utter_novirus:
+  - text: Based on the answers given, you do not need to get tested unless recommended or required by your healthcare provider, employer, or public health official.
 actions:
 - '...'
-- utter_greet
 - utter_agree
 - utter_disagree
-forms:
-  newsletter_form:
-    email:
-    - type: from_text
+- utter_closecontact
+- utter_besafe
+- utter_sick
+forms: {}
 e2e_actions: []

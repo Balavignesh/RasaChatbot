@@ -10,6 +10,7 @@ nlu:
     - hi
     - bot
     - hi how are you
+    - HI
 - intent: utter_agree
   examples: |
     - I Agree
